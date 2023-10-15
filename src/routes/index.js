@@ -2,19 +2,29 @@ import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import Home from "../pages/Home";
-import About from "../pages/AboutUs";
+import AboutUs from "../pages/AboutUs";
 import Contact from "../pages/Contact";
+import Header from "../layout/header.layout";
+
+const LayoutComponent = ({ children }) => {
+  return (
+    <>
+      <Header />
+      {children}
+    </>
+  );
+};
 
 const AppRoutes = () => {
   return (
     <Router>
-      <div>
+      <LayoutComponent>
         <Routes>
-          <Route exact path='/' component={Home} />
-          <Route path='/about' component={About} />
-          <Route path='/contact' component={Contact} />
+          <Route exact path='/' element={<Home />} />
+          <Route path='/about' element={<AboutUs />} />
+          <Route path='/contact' element={<Contact />} />
         </Routes>
-      </div>
+      </LayoutComponent>
     </Router>
   );
 };
