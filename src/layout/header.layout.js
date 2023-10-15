@@ -5,7 +5,6 @@ import {
   Drawer,
   IconButton,
   Toolbar,
-  Typography,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import { useCallback, useMemo, useState } from "react";
@@ -38,10 +37,14 @@ const Header = () => {
     setOpenDrawer((prev) => !prev);
   }, []);
 
+  const routeToHome = useCallback(() => {
+    handleRouting("/");
+  }, [handleRouting]);
+
   return (
     <>
-      <AppBar component='nav'>
-        <Toolbar>
+      <AppBar position='sticky' component='nav'>
+        <Toolbar sx={{ paddingLeft: { sm: 0 } }}>
           <IconButton
             color='inherit'
             aria-label='open drawer'
@@ -51,18 +54,32 @@ const Header = () => {
           >
             <MenuIcon />
           </IconButton>
-          <Typography
-            variant='h6'
-            component='div'
-            sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
+          <Box
+            component='img'
+            sx={{
+              width: 200,
+              height: 60,
+              objectFit: "cover",
+              objectPosition: "25% 50%",
+              maxHeight: { xs: 233, md: 167 },
+              maxWidth: { xs: 350, md: 250 },
+              cursor: "pointer",
+            }}
+            onClick={routeToHome}
+            alt='Thitech icon'
+            src='/assets/logo.png'
+          />
+          <Box
+            sx={{
+              display: { xs: "none", sm: "flex" },
+              flex: 1,
+              justifyContent: "flex-end",
+            }}
           >
-            MUI
-          </Typography>
-          <Box sx={{ display: { xs: "none", sm: "block" } }}>
             {navigationList.map(({ title, routePath }) => (
               <Button
                 key={routePath}
-                sx={{ color: "#fff" }}
+                sx={{ color: "#fff", fontWeight: 700 }}
                 onClick={() => {
                   handleRouting(routePath);
                 }}

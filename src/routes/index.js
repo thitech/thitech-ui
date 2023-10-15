@@ -5,12 +5,17 @@ import Home from "../pages/Home";
 import AboutUs from "../pages/AboutUs";
 import Contact from "../pages/Contact";
 import Header from "../layout/header.layout";
+import { Box } from "@mui/material";
+import Footer from "../layout/footer.layout";
 
 const LayoutComponent = ({ children }) => {
   return (
     <>
       <Header />
-      {children}
+      <Box display={"flex"} flexDirection={"column"} minHeight={"88vh"}>
+        {children}
+      </Box>
+      <Footer />
     </>
   );
 };
