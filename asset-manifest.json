@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/thitech-ui/static/css/main.073c9b0a.css",
+    "main.js": "/thitech-ui/static/js/main.a25ef8e6.js",
+    "index.html": "/thitech-ui/index.html",
+    "main.073c9b0a.css.map": "/thitech-ui/static/css/main.073c9b0a.css.map",
+    "main.a25ef8e6.js.map": "/thitech-ui/static/js/main.a25ef8e6.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.073c9b0a.css",
+    "static/js/main.a25ef8e6.js"
+  ]
+}
